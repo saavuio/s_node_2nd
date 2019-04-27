@@ -1,0 +1,56 @@
+{
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "concurrently \"yarn:lint:watch\" \"yarn:bundle:watch\" --restart-tries 999 --restart-after 1000",
+    "dev-and-test": "concurrently \"yarn:lint:watch\" \"yarn:bundle:watch\" \"yarn:test:watch\" --restart-tries 999 --restart-after 1000",
+    "bundle:watch": "nodemon -e js,ts,json --exec 'ncc run' ./src/__dev__.ts",
+    "bundle": "node ./bundle.js",
+    "test": "jest",
+    "test:watch": "jest --coverage --watch src/",
+    "lint:watch": "esw --ext ts -w src/",
+    "lint:fix": "eslint --ext ts --fix src/"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "(.test)\\.(ts|tsx|js)$",
+      "/dist/"
+    ],
+    "watchPathIgnorePatterns": [
+      "/dist/"
+    ]
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.11",
+    "@types/superstruct": "^0.5.0",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "@zeit/ncc": "^0.17.4",
+    "bytes": "^3.1.0",
+    "concurrently": "^4.1.0",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-import-resolver-typescript": "^1.1.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-watch": "^5.0.1",
+    "glob": "^7.1.3",
+    "jest": "^24.7.1",
+    "mkdirp": "^0.5.1",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "superstruct": "^0.6.1"
+  }
+}

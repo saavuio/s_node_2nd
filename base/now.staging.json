@@ -1,0 +1,10 @@
+{
+  "name": "now-node-ts",
+  "alias": ["now-node-ts.now.sh"],
+  "version": 2,
+  "builds": [
+    { "src": "./dist/**/*.js", "use": "@now/node" }
+  ],
+  "regions": ["bru"]
+}
+

@@ -1,0 +1,26 @@
+#!/bin/bash
+RUN_DIR=$(pwd)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+KEYS_PATH="$SCRIPT_DIR/now_d/keys"
+mkdir $KEYS_PATH 2> /dev/null
+
+cd $(realpath $SCRIPT_DIR)
+
+if [ ! -f ./now_d/.docker-build-done ]; then
+  ./now_d/now-docker-build.sh
+fi
+
+CMD=${@:1}
+# Workaround so that now won't create a file with root-only access. We only
+# use the token, so this file isn't actually even needed.
+echo "{}" > $KEYS_PATH/auth.json
+docker run --rm \
+  --net=host \
+  $([ ! -z $NO_TTY ] && echo '' || echo '-it') \
+  --volume $RUN_DIR:/host-pwd \
+  --volume $KEYS_PATH:/root/.now \
+  --workdir /host-pwd \
+  --entrypoint sh \
+  saavu-local/now \
+  -c "/usr/local/share/.config/yarn/global/node_modules/.bin/now $CMD"
+exit $?
