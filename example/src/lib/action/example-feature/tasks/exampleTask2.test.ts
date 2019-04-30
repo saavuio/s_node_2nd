@@ -2,7 +2,7 @@
 
 // this file is only used to set mocks before importing the task
 
-import { mockHelper } from './test-helpers';
+import { mockHelper } from '@/lib/helpers/test';
 
 // mocks used within tests are listed here. Responses can be set dynamically
 // for each test.

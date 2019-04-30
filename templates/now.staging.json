@@ -5,6 +5,10 @@
   "builds": [
     { "src": "./dist/**/*.js", "use": "@now/node" }
   ],
+  "routes": [
+    { "src": "/", "dest": "/dist/index.js" },
+    { "src": "/(.*)", "dest": "/dist/$1" }
+  ],
   "regions": ["bru"]
 }
 

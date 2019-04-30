@@ -26,6 +26,10 @@ cp ./${S_BASE_NAME}/templates/gitignore ${PROJECT_ROOT_PATH}/.gitignore
 mv ${PROJECT_ROOT_PATH}/.nowignore $STASH_DIR 2> /dev/null
 cp ./${S_BASE_NAME}/templates/nowignore ${PROJECT_ROOT_PATH}/.nowignore
 
+# now.staging.json skel
+mv ${PROJECT_ROOT_PATH}/now.staging.json $STASH_DIR 2> /dev/null
+cp ./${S_BASE_NAME}/templates/now.staging.json ${PROJECT_ROOT_PATH}/now.staging.json
+
 # env-development skel
 if [ ! -f ${PROJECT_ROOT_PATH}/env-development ]; then
   cp ./${S_BASE_NAME}/templates/env-development ${PROJECT_ROOT_PATH}/env-development

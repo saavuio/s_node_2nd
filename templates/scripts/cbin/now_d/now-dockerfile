@@ -1,5 +1,6 @@
 FROM node:8.11.3
 ARG container_user_id
 RUN useradd --shell /bin/bash -u $container_user_id -o -c "" -m user-in-container
-RUN yarn global add now@14.0.3
+# match version in now-docker-build.sh and cbin/now
+RUN yarn global add now@15.0.6
 USER user-in-container

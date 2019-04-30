@@ -21,6 +21,7 @@ docker run --rm \
   --volume $KEYS_PATH:/root/.now \
   --workdir /host-pwd \
   --entrypoint sh \
-  saavu-local/now \
+  saavu-local/now:15.0.6 \
   -c "/usr/local/share/.config/yarn/global/node_modules/.bin/now $CMD"
+  # match version above in now-docker-build.sh and now-dockerfile
 exit $?

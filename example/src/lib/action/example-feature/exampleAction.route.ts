@@ -1,8 +1,7 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import { struct } from 'superstruct';
 // helpers
-import runTask from '@/helpers/run-task';
+import { runTask } from '@/lib/helpers/run-task';
 // tasks
 import exampleTask1 from './tasks/exampleTask1';
 import exampleTask2 from './tasks/exampleTask2';
@@ -14,12 +13,13 @@ const UserInput = struct({
 });
 
 const app: express.Application = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 export default app.post(
   '*',
   async (req, res): Promise<void> => {
     const userInput = req.body;
+    console.log(req.body);
     const userInputValidation = UserInput.validate(userInput);
     // @TODO input validation
     console.log(userInputValidation);
@@ -34,14 +34,14 @@ export default app.post(
     if (!halt) {
       task = exampleTask1;
       params = { name: userInput.name };
-      ({ halt, error } = await runTask(task(params)));
+      ({ halt, error } = await runTask('exampleTask1', task, params));
     }
 
     // TASK BLOCK 2
     if (!halt) {
       task = exampleTask2;
       params = { name: userInput.name };
-      ({ halt, error } = await runTask(task(params)));
+      ({ halt, error } = await runTask('exampleTask2', task, params));
     }
 
     // RESULT

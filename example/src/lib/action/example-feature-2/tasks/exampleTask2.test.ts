@@ -2,7 +2,7 @@
 
 // this file is only used to set mocks before importing the task
 
-import { mockHelper } from './test-helpers';
+import { mockHelper } from '@/lib/helpers/test';
 
 // mocks used within tests are listed here. Responses can be set dynamically
 // for each test.
@@ -11,7 +11,7 @@ const mocks = {
   // simplePsqlQueryOne: mockHelper(jest, 'simple-psql', 'queryOne'),
 };
 
-import { tests } from './exampleTask1';
+import { tests } from './exampleTask2';
 
 // ... actual tests are located within the task itself
 tests(mocks);

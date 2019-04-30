@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "strict": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,

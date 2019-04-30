@@ -1,6 +1,6 @@
 // @TODO import custom error handler
 import axios from 'axios';
-import { internalErrorMessage } from '@/helpers/shared-messages';
+import { internalErrorMessage } from '@/lib/helpers/shared-messages';
 
 const invalidNameErrorMessage = 'invalid name';
 
@@ -35,7 +35,7 @@ const task = async (input: Input): Promise<Output> => {
 export default task;
 
 // eslint-disable-next-line import/first
-import { MockHelperItem } from './test-helpers';
+import { MockHelperItem } from '@/lib/helpers/test';
 
 export const tests = (mocks: Record<string, MockHelperItem>): void => {
   it('task 2 test 1', async (): Promise<void> => {
@@ -45,6 +45,6 @@ export const tests = (mocks: Record<string, MockHelperItem>): void => {
     ]);
     const output = await task({ name: 'test' });
     expect(output).toEqual({ value: 'call from another test 1' });
-    expect(mocks.axiosGet.getCallCount()).toBe(1);
+    expect(mocks.axiosGet.callCount()).toBe(1);
   });
 };

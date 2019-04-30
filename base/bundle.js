@@ -37,20 +37,24 @@ async function build(file) {
 
   if (Object.keys(assets).length) console.error('New unexpected assets are being emitted for', file);
 
-  const name = relative(`${__dirname}/src/routes`, file).replace(new RegExp('.ts$'), '');
-  await mkdirp(resolve(DIST_DIR, name));
-  write(resolve(DIST_DIR, name, 'index.js'), code);
+  const name = relative(`${__dirname}/src/lib`, file).replace(new RegExp('.route.ts$'), '');
+  if (name !== 'index') {
+    await mkdirp(resolve(DIST_DIR, name));
+    write(resolve(DIST_DIR, name, 'index.js'), code);
+  } else {
+    write(resolve(DIST_DIR, 'index.js'), code);
+  }
 }
 
 async function main() {
   // remove existing dist
-  await rimraf(DIST_DIR);
+  await rimraf(`${DIST_DIR}/*`);
 
   // create our output and custom cache directories
   await mkdirp(CACHE_DIR);
 
   // find all routes we want to bundle
-  const files = await glob(resolve(__dirname, './src/routes/**/*.ts'));
+  const files = await glob(resolve(__dirname, './src/lib/**/*.route.ts'));
 
   // build all found files
   return Promise.all(files.map(build));

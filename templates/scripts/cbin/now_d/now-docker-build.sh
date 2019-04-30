@@ -6,5 +6,6 @@ cd $SCRIPT_DIR
 # The reason for this complexity is that we want the container to be running
 # with the exact same user id than the host. That way, when stuff gets created
 # inside the container, the host user will own them.
-docker build -t saavu-local/now --build-arg container_user_id=$(id -u) -f now-dockerfile .
+docker build -t saavu-local/now:15.0.6 --build-arg container_user_id=$(id -u) -f now-dockerfile .
+# match version above in cbin/now and now-dockerfile
 touch .docker-build-done
