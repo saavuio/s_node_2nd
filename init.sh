@@ -13,20 +13,20 @@ function base_fetch {
   NAME=$1
   VERSION=$2
   # UNCOMMENT AND CORRECT FOR LOCAL SETUP (development)
-  LOCAL_PATH=../../../s_bases
+  # LOCAL_PATH=../../../s_bases
 
   rm -rf ./${NAME}
   rm -rf ./${NAME}_cache
 
   # UNCOMMENT FOR REMOTE SETUP (default)
-  # git clone --single-branch -b $VERSION https://github.com/saavuio/$NAME
+  git clone --single-branch -b $VERSION https://github.com/saavuio/$NAME
   # UNCOMMENT FOR LOCAL SETUP (development)
-  cp -a ${LOCAL_PATH}/${NAME}/ ./$NAME
+  # cp -a ${LOCAL_PATH}/${NAME}/ ./$NAME
 
   # UNCOMMENT FOR REMOTE SETUP (default)
-  # git clone --single-branch -b $VERSION https://github.com/saavuio/${NAME}_cache
+  git clone --single-branch -b $VERSION https://github.com/saavuio/${NAME}_cache
   # UNCOMMENT FOR LOCAL SETUP (development)
-  mv ./$NAME/base/node_modules_cache ${NAME}_cache
+  # mv ./$NAME/base/node_modules_cache ${NAME}_cache
 
   cp ${NAME}_cache/node_modules.tar.bz2 ${NAME}/base
 
