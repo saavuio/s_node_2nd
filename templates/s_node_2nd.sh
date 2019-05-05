@@ -13,7 +13,7 @@ if [ "$GIT_SHA_SHOULD_BE" != "LATEST" ]; then
     echo "Base updated. Running ./s_base/${NAME}/init.sh"
     echo "..."
     sleep 3
-    ./s_base/${NAME}/init.sh
+    ./s_base/${NAME}/init.sh $GIT_SHA_SHOULD_BE
   fi
 fi
 

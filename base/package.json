@@ -1,14 +1,17 @@
 {
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "concurrently \"yarn:lint:watch\" \"yarn:bundle:watch\" --restart-tries 999 --restart-after 1000",
-    "dev-and-test": "concurrently \"yarn:lint:watch\" \"yarn:bundle:watch\" \"yarn:test:watch\" --restart-tries 999 --restart-after 1000",
-    "bundle:watch": "nodemon -e js,ts,json --exec 'ncc run' ./src/__dev__.ts",
-    "bundle": "node ./bundle.js",
+    "dev": "concurrently -r \"yarn:lint-code:watch\" \"yarn:lint-type:watch\" \"yarn:dev-init\" --restart-tries 999 --restart-after 1000",
+    "ts-node": "TS_NODE_COMPILER_OPTIONS=\"{\\\"module\\\":\\\"commonjs\\\"}\" TS_NODE_FILES=true TS_NODE_TRANSPILE_ONLY=true ts-node -r tsconfig-paths/register",
+    "dev-init": "NODE_ENV=development nodemon -e js,ts,json --exec 'yarn run ts-node' ./src/__dev__.ts",
     "test": "jest",
     "test:watch": "jest --coverage --watch src/",
-    "lint:watch": "esw --ext ts -w src/",
-    "lint:fix": "eslint --ext ts --fix src/"
+    "lint-type": "tsc --noEmit",
+    "lint-type:watch": "tsc -w --preserveWatchOutput --noEmit",
+    "lint-code": "eslint --ext ts src/",
+    "lint-code:watch": "esw --ext ts -w src/",
+    "lint-code:fix": "eslint --ext ts --fix src/",
+    "bundle": "node ./bundle.js"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
@@ -46,6 +49,8 @@
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
+    "tsconfig-paths": "^3.8.0",
     "typescript": "^3.4.1"
   },
   "dependencies": {
