@@ -8,7 +8,9 @@ mkdir ${PROJECT_ROOT_PATH}/dist 2> /dev/null
 mkdir ${PROJECT_ROOT_PATH}/.webpack-cache 2> /dev/null
 
 # link to self
-cp ./${S_BASE_NAME}/templates/${S_BASE_NAME}.sh ${PROJECT_ROOT_PATH}
+if [ ! -f ${PROJECT_ROOT_PATH}/${S_BASE_NAME}.sh ]; then
+  cp ./${S_BASE_NAME}/templates/${S_BASE_NAME}.sh ${PROJECT_ROOT_PATH}
+fi
 
 DATE=`date '+%Y-%m-%d_%H%M%S'`
 STASH_DIR=_stash_${DATE}

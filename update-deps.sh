@@ -26,10 +26,16 @@ mv node_modules.tar.bz2 $CACHE_DIR
 
 # UNCOMMENT TO PUSH TO GITHUB
 
-# cd $CACHE_DIR
-# git init
-# git remote add origin $CACHE_REPO
-# git checkout -b $VERSION
-# git add node_modules.tar.bz2
-# git commit -m "Latest."
-# git push -u -f origin $VERSION
+if [ ! -z "$1" ]; then
+  TARGET_BRANCH=main-repo-sha-$1
+else
+  TARGET_BRANCH=$VERSION
+fi
+
+cd $CACHE_DIR
+git init
+git remote add origin $CACHE_REPO
+git checkout -b $TARGET_BRANCH
+git add node_modules.tar.bz2
+git commit -m "Latest."
+git push -u -f origin $TARGET_BRANCH
