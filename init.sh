@@ -25,6 +25,15 @@ function base_fetch {
   # UNCOMMENT FOR LOCAL SETUP (development)
   # cp -a ${LOCAL_PATH}/${NAME}/ ./$NAME
 
+  if [ ! -z "$TARGET_SHA" ]; then
+    cd ${NAME}
+    git checkout $TARGET_SHA
+    cd ..
+    CACHE_BRANCH=main-repo-sha-$TARGET_SHA
+  else
+    CACHE_BRANCH=$VERSION
+  fi
+
   # UNCOMMENT FOR REMOTE SETUP (default)
   git clone --single-branch -b $VERSION https://github.com/saavuio/${NAME}_cache
   # UNCOMMENT FOR LOCAL SETUP (development)
@@ -33,9 +42,6 @@ function base_fetch {
   cp ${NAME}_cache/node_modules.tar.bz2 ${NAME}/base
 
   if [ ! -z "$TARGET_SHA" ]; then
-    cd ${NAME}
-    git checkout $TARGET_SHA
-    cd ..
     cd ${NAME}_cache
     git checkout main-repo-sha-$TARGET_SHA
     cd ..
