@@ -41,12 +41,6 @@ function base_fetch {
 
   cp ${NAME}_cache/node_modules.tar.bz2 ${NAME}/base
 
-  if [ ! -z "$TARGET_SHA" ]; then
-    cd ${NAME}_cache
-    git checkout main-repo-sha-$TARGET_SHA
-    cd ..
-  fi
-
   S_BASE_NAME=$NAME S_BASE_VERSION=$VERSION PROJECT_ROOT_PATH=.. \
     ./$NAME/scripts/after_base_fetch.sh
 }
