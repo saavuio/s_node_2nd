@@ -5,6 +5,16 @@ cd $SCRIPT_DIR
 NAME=s_node_2nd
 VERSION=v1
 
+if [ ! -d ./s_base/${NAME} ]; then
+  mkdir -p s_base/${NAME}
+  curl -Lso ./s_base/${NAME}/init.sh https://github.com/saavuio/${NAME}/raw/${VERSION}/init.sh
+  chmod +x ./s_base/${NAME}/init.sh
+fi
+
+# NOTE: this file will get a local copy in the target project. Change the
+# following line to automatically trigger updates to a specific target SHA for
+# all users if the base has been updated. Use the 7 digit short format for the
+# git SHA.
 GIT_SHA_SHOULD_BE="LATEST"
 GIT_SHA_IS=$(cd s_base/$NAME && git log --pretty=format:'%h' -n 1)
 

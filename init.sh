@@ -27,7 +27,7 @@ function base_fetch {
 
   if [ ! -z "$TARGET_SHA" ]; then
     cd ${NAME}
-    git checkout $TARGET_SHA
+    git -c advice.detachedHead=false checkout $TARGET_SHA
     cd ..
     CACHE_BRANCH=main-repo-sha-$TARGET_SHA
   else
