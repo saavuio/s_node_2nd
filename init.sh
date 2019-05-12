@@ -35,7 +35,7 @@ function base_fetch {
   fi
 
   # UNCOMMENT FOR REMOTE SETUP (default)
-  git clone --single-branch -b $VERSION https://github.com/saavuio/${NAME}_cache
+  git clone --single-branch -b $CACHE_BRANCH https://github.com/saavuio/${NAME}_cache
   # UNCOMMENT FOR LOCAL SETUP (development)
   # mv ./$NAME/base/node_modules_cache ${NAME}_cache
 
