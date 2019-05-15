@@ -21,6 +21,7 @@ module.exports = {
     "no-null/no-null": 2,
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/camelcase": false,
     "no-restricted-syntax": [
       "error",
       {
