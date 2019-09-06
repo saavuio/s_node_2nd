@@ -12,6 +12,8 @@ $PROJECT_ROOT_PATH/scripts/build.sh
 
 echo
 echo "To start with an example base, run:"
-echo "cp -a ./s_base/${S_BASE_NAME}/example/src/* ./src"
-echo "./${S_BASE_NAME}.sh yarn add axios"
+echo "git clone https://github.com/saavuio/${S_BASE_NAME}_example.git ./"
+echo "cp -a ./${S_BASE_NAME}_example/* ./"
+echo "./${S_BASE_NAME}.sh yarn install"
 echo
+echo "NOTE: the example repository is private. Ask for permission to access it."
