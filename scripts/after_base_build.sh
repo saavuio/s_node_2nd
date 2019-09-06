@@ -12,8 +12,9 @@ $PROJECT_ROOT_PATH/scripts/build.sh
 
 echo
 echo "To start with an example base, run:"
-echo "git clone https://github.com/saavuio/${S_BASE_NAME}_example.git ./"
+echo "git clone git@gitlab.com:saavuio/s_bases/${S_BASE_NAME}_example.git"
 echo "cp -a ./${S_BASE_NAME}_example/* ./"
 echo "./${S_BASE_NAME}.sh yarn install"
+echo "./scripts/dev.sh"
 echo
 echo "NOTE: the example repository is private. Ask for permission to access it."
