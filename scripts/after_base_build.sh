@@ -17,4 +17,7 @@ echo "cp -a ./${S_BASE_NAME}_example/* ./"
 echo "./${S_BASE_NAME}.sh yarn install"
 echo "./scripts/dev.sh"
 echo
+echo "Then you should be able to run for example:"
+echo "curl -XPOST http://0.0.0.0:34601/action/example-feature-v1/exampleAction -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{\"userId\": 1, \"name\": \"test\"}'"
+echo
 echo "NOTE: the example repository is private. Ask for permission to access it."
