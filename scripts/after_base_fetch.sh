@@ -17,20 +17,24 @@ STASH_DIR=_stash_${DATE}
 mkdir $STASH_DIR
 
 # scripts
-mv ${PROJECT_ROOT_PATH}/scripts $STASH_DIR 2> /dev/null
-cp -a ./${S_BASE_NAME}/templates/scripts ${PROJECT_ROOT_PATH}/scripts
+if [ ! -d ${PROJECT_ROOT_PATH}/scripts ]; then
+  cp -a ./${S_BASE_NAME}/templates/scripts ${PROJECT_ROOT_PATH}/scripts
+fi
 
 # .gitignore skel
-mv ${PROJECT_ROOT_PATH}/.gitignore $STASH_DIR 2> /dev/null
-cp ./${S_BASE_NAME}/templates/gitignore ${PROJECT_ROOT_PATH}/.gitignore
+if [ ! -f ${PROJECT_ROOT_PATH}/.gitignore ]; then
+  cp ./${S_BASE_NAME}/templates/gitignore ${PROJECT_ROOT_PATH}/.gitignore
+fi
 
 # .nowignore skel
-mv ${PROJECT_ROOT_PATH}/.nowignore $STASH_DIR 2> /dev/null
-cp ./${S_BASE_NAME}/templates/nowignore ${PROJECT_ROOT_PATH}/.nowignore
+if [ ! -f ${PROJECT_ROOT_PATH}/.nowignore ]; then
+  cp ./${S_BASE_NAME}/templates/nowignore ${PROJECT_ROOT_PATH}/.nowignore
+fi
 
 # now.staging.json skel
-mv ${PROJECT_ROOT_PATH}/now.staging.json $STASH_DIR 2> /dev/null
-cp ./${S_BASE_NAME}/templates/now.staging.json ${PROJECT_ROOT_PATH}/now.staging.json
+if [ ! -f ${PROJECT_ROOT_PATH}/now.staging.json ]; then
+  cp ./${S_BASE_NAME}/templates/now.staging.json ${PROJECT_ROOT_PATH}/now.staging.json
+fi
 
 # env-development skel
 if [ ! -f ${PROJECT_ROOT_PATH}/env-development ]; then
