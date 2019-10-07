@@ -6,7 +6,7 @@ ARG s_base_name
 
 ENV S_BASE_NAME=$s_base_name
 
-RUN apk --no-cache add bash jq
+RUN apk --no-cache add bash git jq
 
 # move node user away from uid 1000 in case our local user happens to have that uid
 RUN apk --no-cache add shadow && mkdir /var/mail && \

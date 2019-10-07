@@ -8,3 +8,5 @@ cd src
 find . -type f -not -path "*static/*" -and -not -path "*assets/*" -print0 | xargs -0 perl -pi -e 's/ +$//'
 # remove non-breaking spaces
 find . -type f -not -path "*static/*" -and -not -path "*assets/*" -print0 | xargs -0 perl -pi -e 's/ / /g'
+
+echo "removed extra spaces."

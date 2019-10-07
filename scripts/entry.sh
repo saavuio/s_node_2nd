@@ -4,7 +4,7 @@ cd /$S_BASE_NAME
 # copy external node modules
 cp -a /ext/node_modules/* node_modules
 
-# merge local package.json
+# merge external package.json
 jq -s 'reduce .[] as $d ({}; . *= $d)' ./package.json /ext/package.json > /tmp/package.json
 cat /tmp/package.json > ./package.json
 
