@@ -23,7 +23,7 @@ fi
 # following line to automatically trigger updates to a specific target SHA for
 # all users if the base has been updated. Use the 7 digit short format for the
 # git SHA.
-GIT_SHA_SHOULD_BE="9eda5e4"
+GIT_SHA_SHOULD_BE="LATEST"
 GIT_SHA_IS=$(cd s_base/$NAME && git log --pretty=format:'%h' -n 1)
 
 if [ "$GIT_SHA_SHOULD_BE" != "LATEST" ]; then
