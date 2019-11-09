@@ -2,13 +2,15 @@
   "name": "now-node-ts",
   "alias": ["now-node-ts.now.sh"],
   "version": 2,
+  "env": {
+    "EXAMPLE": "@example-value"
+  },
   "builds": [
-    { "src": "./dist/**/*.js", "use": "@now/node" }
+    { "src": "./src-to-deploy/**/*.route.ts", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/", "dest": "/dist/index.js" },
-    { "src": "/(.*)", "dest": "/dist/$1" }
+    { "src": "/", "dest": "/src-to-deploy/lib/index.route.ts" },
+    { "src": "/(.+)", "dest": "/src-to-deploy/lib/$1.route.ts" }
   ],
-  "regions": ["bru"]
+  "regions": ["all"]
 }
-

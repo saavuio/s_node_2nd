@@ -17,4 +17,4 @@ docker run \
   --volume $RUN_DIR:/app \
   --workdir /app \
   --entrypoint yarn \
-  node:8.11.3-alpine ${@:1}
+  node:8.13.0-alpine ${@:1}
