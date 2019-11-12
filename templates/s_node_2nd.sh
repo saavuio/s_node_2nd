@@ -3,7 +3,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd $SCRIPT_DIR
 
 NAME=s_node_2nd
-VERSION=v1
+VERSION=v2
 
 if [ ! -d ./s_base/${NAME} ]; then
   mkdir -p s_base/${NAME}
