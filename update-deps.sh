@@ -26,7 +26,7 @@ fi
 if [ ! -z "$PUSH_TO_REMOTE" ]; then
   echo "upload to seperate github repo"
   CACHE_REPO=git@github.com:saavuio/s_node_2nd_cache.git
-  VERSION=v1
+  VERSION=v2
 
   if [ ! -z "$1" ]; then
     TARGET_BRANCH=main-repo-sha-$1
