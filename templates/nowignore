@@ -1,7 +1,9 @@
 # ignore everything ...
 *
-# ... except for the dist directory
-!dist
-!dist/
-!dist/*
-!dist/**/*
+# ... except for
+!tsconfig.json
+!package.json
+!src-to-deploy
+!src-to-deploy/
+!src-to-deploy/*
+!src-to-deploy/**/*
