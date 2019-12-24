@@ -1,14 +1,17 @@
 {
-  "name": "now-node-ts",
-  "alias": ["now-node-ts.now.sh"],
+  "name": "ts-node-test",
+  "alias": ["ts-node-test.now.sh"],
   "version": 2,
+  "env": {
+    "NODE_ENV": "staging",
+    "TARGET_ENV": "staging"
+  },
   "builds": [
-    { "src": "./dist/**/*.js", "use": "@now/node" }
+    { "src": "./src-to-deploy/**/*.route.ts", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/", "dest": "/dist/index.js" },
-    { "src": "/(.*)", "dest": "/dist/$1" }
+    { "src": "/", "dest": "/src-to-deploy/lib/index.route.ts" },
+    { "src": "/(.+)", "dest": "/src-to-deploy/lib/$1.route.ts" }
   ],
   "regions": ["bru"]
 }
-
