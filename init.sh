@@ -56,7 +56,7 @@ function base_build {
 
 # -- s_node_2nd
 if [ ! -d s_node_2nd ] || [ -z $OBF ]; then
-  base_fetch "s_node_2nd" "v1"
-  base_build "s_node_2nd" "v1"
+  base_fetch "s_node_2nd" "v3"
+  base_build "s_node_2nd" "v3"
 fi
 

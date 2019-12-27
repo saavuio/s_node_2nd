@@ -70,6 +70,10 @@ module.exports = {
       "ignoreTemplateLiterals": true,
     }],
     "no-console": ["error", { "allow": ["log", "debug", "warn", "error"] }],
+    'import/extensions': ['error', 'always', {
+      js: 'never',
+      ts: 'never', // NOTE: ts itself doesn't want .ts extensions with imports, so don't lint here
+    }],
   },
   "settings": {
     "import/parsers": {
