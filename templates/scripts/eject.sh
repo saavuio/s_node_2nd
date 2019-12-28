@@ -31,6 +31,7 @@ if [ ! -f .ejected ] || [ "$1" = "force" ]; then
   docker cp ${CONTAINER_NAME}:/$IMAGE_ID/.prettierrc.js ./
   docker cp ${CONTAINER_NAME}:/$IMAGE_ID/tsconfig.json ./
   docker cp ${CONTAINER_NAME}:/$IMAGE_ID/package.json ./
+  docker cp ${CONTAINER_NAME}:/$IMAGE_ID/bundle.js ./
   docker cp ${CONTAINER_NAME}:/$IMAGE_ID/jest.config.js ./
   #
   if [ ! -d node_modules ]; then

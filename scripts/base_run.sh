@@ -67,6 +67,7 @@ docker run \
   $([ -d $RUN_DIR/.webpack-cache ] && echo "--volume $RUN_DIR/.webpack-cache:/${S_BASE_NAME}/.webpack-cache") \
   $([ -d $RUN_DIR/node_modules_app ] && echo "--volume $RUN_DIR/node_modules_app:/ext/node_modules") \
   $([ -f $RUN_DIR/env-development ] && echo "--volume $RUN_DIR/env-development:/${S_BASE_NAME}/env-development") \
+  $([ -f $RUN_DIR/bundle.js ] && echo "--volume $RUN_DIR/bundle.js:/${S_BASE_NAME}/bundle.js") \
   $([ -f $RUN_DIR/jest.config.js ] && echo "--volume $RUN_DIR/jest.config.js:/${S_BASE_NAME}/jest.config.js") \
   $([ -f $RUN_DIR/now.json ] && echo "--volume $RUN_DIR/now.json:/${S_BASE_NAME}/now.json") \
   $([ -f $RUN_DIR/.gitignore ] && echo "--volume $RUN_DIR/.gitignore:/${S_BASE_NAME}/.gitignore") \

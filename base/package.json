@@ -10,7 +10,8 @@
     "lint-type:watch": "tsc -w --preserveWatchOutput --noEmit",
     "lint-code": "eslint --ext ts src/",
     "lint-code:watch": "esw --ext ts -w src/",
-    "lint-code:fix": "eslint --ext ts --fix src/"
+    "lint-code:fix": "eslint --ext ts --fix src/",
+    "bundle": "node ./bundle.js"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
