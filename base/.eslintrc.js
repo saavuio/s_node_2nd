@@ -73,8 +73,7 @@ module.exports = {
     'import/extensions': ['error', 'always', {
       js: 'never',
       ts: 'never', // NOTE: ts itself doesn't want .ts extensions with imports, so don't lint here
-    }],
-    'import/order': 'off'
+    }]
   },
   "settings": {
     "import/parsers": {
