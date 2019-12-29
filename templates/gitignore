@@ -33,6 +33,4 @@ s_base/_stash*
 node_modules_app
 .ejected
 package.json
-.eslintrc.js
 .prettierrc.js
-tsconfig.json
