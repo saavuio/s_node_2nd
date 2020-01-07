@@ -58,5 +58,8 @@
     "express": "^4.17.1",
     "jest-express": "^1.10.0",
     "superstruct": "^0.6.1"
+  },
+  "engines": { 
+    "node": "10.x"
   }
 }
