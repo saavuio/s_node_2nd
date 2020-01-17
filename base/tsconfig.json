@@ -20,5 +20,5 @@
   },
   "defaultExtension": "ts",
   "include": ["src/**/*.ts", "src-to-deploy/**/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/shared/ui"],
 }
