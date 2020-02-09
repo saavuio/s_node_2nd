@@ -13,7 +13,7 @@ cd ..
 if [ ! -f .ejected ] || [ "$1" = "force" ]; then
   echo "fetching stuff from inside the container."
   IMAGE_ID=s_node_2nd
-  RUNNER=./scripts/${IMAGE_ID}.sh
+  RUNNER=./${IMAGE_ID}.sh
   if [ ! -f $RUNNER ]; then exit 1; fi
   CONTAINER_NAME=${IMAGE_ID}_tmp
   CONTAINER_NAME=$CONTAINER_NAME NO_TTY=1 $RUNNER eval "sleep 60;" &
